@@ -40,6 +40,7 @@ Alt:Voice automatically makes sure that no id gets used twice by not creating yo
 ```csharp
 //Create a new voice channel
 alt.Emit('altvoice:createchannel', id); 
+Optional: alt.Emit('altvoice:createchannel', id, players); 
 
 //Add a player to a voice channel
 alt.Emit('altvoice:addplayer', id, player);
@@ -52,6 +53,7 @@ alt.Emit('altvoice:removeplayer', id, player);
 ```javascript
 //Create a new voice channel
 alt.emit('altvoice:createchannel', id); 
+Optional: alt.emit('altvoice:createchannel', id, players); 
 
 //Add a player to a voice channel
 alt.emit('altvoice:addplayer', id, player);
