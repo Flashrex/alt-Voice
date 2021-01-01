@@ -29,6 +29,8 @@ public void OnAddPlayer(int voiceid, IPlayer player) { }
 
 [ServerEvent("altvoice:removeplayer")]
 public void OnRemovePlayer(int voiceid, IPlayer player) { }
+
+Alt.Emit("altvoice:removedchannel", Id);
 ```
 
 ## Usage
@@ -47,6 +49,12 @@ alt.Emit('altvoice:addplayer', id, player);
 
 //Remove a player from a voice channel
 alt.Emit('altvoice:removeplayer', id, player);
+
+//Gets called if a temporary voice channel gets removed
+[ServerEvent("altvoice:altvoice:removedchannel")]
+public void OnRemoveChannel(int channelid) {
+  //Do Stuff
+}
 ```
 
 * JS-Serverside
@@ -60,6 +68,11 @@ alt.emit('altvoice:addplayer', id, player);
 
 //Remove a player from a voice channel
 alt.emit('altvoice:removeplayer', id, player);
+
+//Gets called if a temporary voice channel gets removed
+alt.on('altvoice:altvoice:removedchannel', (channelid) => {
+  //do stuff
+})
 ```
 
 ## Installation
