@@ -33,11 +33,11 @@ public void OnRemovePlayer(int voiceid, IPlayer player) { }
 
 ## Usage
 
+
+- 'id' is an unique id to identify each voice channel
+- alt:Voice automatically makes sure that no id gets used twice by not creating your channel if the given id is already in use
+
 * C#-Serverside
-
-* 'id' is an unique id to identify each voice channel
-* alt:Voice automatically makes sure that no id gets used twice by not creating your channel if the given id is already in use
-
 ```csharp
 //Create a new voice channel
 alt.Emit('altvoice:createchannel', id); 
@@ -47,6 +47,18 @@ alt.Emit('altvoice:addplayer', id, player);
 
 //Remove a player from a voice channel
 alt.Emit('altvoice:removeplayer', id, player);
+```
+
+* JS-Serverside
+```javascript
+//Create a new voice channel
+alt.emit('altvoice:createchannel', id); 
+
+//Add a player to a voice channel
+alt.emit('altvoice:addplayer', id, player);
+
+//Remove a player from a voice channel
+alt.emit('altvoice:removeplayer', id, player);
 ```
 
 ## Installation
