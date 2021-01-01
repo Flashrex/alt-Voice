@@ -51,7 +51,7 @@ alt.Emit('altvoice:addplayer', id, player);
 alt.Emit('altvoice:removeplayer', id, player);
 
 //Gets called if a temporary voice channel gets removed
-[ServerEvent("altvoice:altvoice:removedchannel")]
+[ServerEvent("altvoice:removedchannel")]
 public void OnRemoveChannel(int channelid) {
   //Do Stuff
 }
@@ -70,7 +70,7 @@ alt.emit('altvoice:addplayer', id, player);
 alt.emit('altvoice:removeplayer', id, player);
 
 //Gets called if a temporary voice channel gets removed
-alt.on('altvoice:altvoice:removedchannel', (channelid) => {
+alt.on('altvoice:removedchannel', (channelid) => {
   //do stuff
 })
 ```
