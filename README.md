@@ -33,9 +33,8 @@ public void OnRemovePlayer(int voiceid, IPlayer player) { }
 
 ## Usage
 
-
-- 'id' is an unique id to identify each voice channel
-- alt:Voice automatically makes sure that no id gets used twice by not creating your channel if the given id is already in use
+'id' is an unique id to identify each voice channel.
+Alt:Voice automatically makes sure that no id gets used twice by not creating your channel if the given id is already in use.
 
 * C#-Serverside
 ```csharp
