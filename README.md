@@ -27,7 +27,6 @@ public void OnCreateChannel(int voiceid, IPlayer[] players = null) { }
 [ServerEvent("altvoice:addplayer")]
 public void OnAddPlayer(int voiceid, IPlayer player) { }
 
-
 [ServerEvent("altvoice:removeplayer")]
 public void OnRemovePlayer(int voiceid, IPlayer player) { }
 ```
@@ -35,6 +34,10 @@ public void OnRemovePlayer(int voiceid, IPlayer player) { }
 ## Usage
 
 * C#-Serverside
+
+* 'id' is an unique id to identify each voice channel
+* alt:Voice automatically makes sure that no id gets used twice by not creating your channel if the given id is already in use
+
 ```csharp
 //Create a new voice channel
 alt.Emit('altvoice:createchannel', id); 
