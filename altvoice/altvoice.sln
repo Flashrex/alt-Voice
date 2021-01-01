@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "altvoice", "altvoice\altvoice.csproj", "{C7C9D578-690E-447E-8A98-1A79B53C9929}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7C9D578-690E-447E-8A98-1A79B53C9929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C9D578-690E-447E-8A98-1A79B53C9929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C9D578-690E-447E-8A98-1A79B53C9929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7C9D578-690E-447E-8A98-1A79B53C9929}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26D27413-7C39-49D3-879B-50C515489B6F}
+	EndGlobalSection
+EndGlobal

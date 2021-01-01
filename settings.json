@@ -1,0 +1,7 @@
+{
+	"Debug": true,
+	"UseGlobalVoice": true,
+	"ShortRange": 5.0,
+	"MidRange": 10.0,
+	"LongRange": 20.0
+}

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "altvoice": {
+      "commandName": "Executable",
+      "executablePath": "E:\\Coding\\AltV\\altv-release\\altv-server\\altv-server.exe",
+      "workingDirectory": "E:\\Coding\\AltV\\altv-release\\altv-server"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "JGdrCT/KPJz0So8Ies61F3JRIPgDQQU1y0noPLvp35jnE8hyR/QGphcL1GBppf95ASSxep2n50tMr7u9DS3x5g==",
+  "success": true,
+  "projectFilePath": "E:\\Coding\\AltV\\AltVoice\\AltVoice\\altvoice\\altvoice.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\domin\\.nuget\\packages\\altv.net\\1.48.3\\altv.net.1.48.3.nupkg.sha512"
+  ],
+  "logs": []
+}

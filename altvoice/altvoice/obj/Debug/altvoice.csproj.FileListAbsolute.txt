@@ -1,0 +1,10 @@
+E:\Coding\AltV\altv-release\altv-server\resources\altvoice\altvoice.deps.json
+E:\Coding\AltV\altv-release\altv-server\resources\altvoice\altvoice.dll
+E:\Coding\AltV\altv-release\altv-server\resources\altvoice\altvoice.pdb
+E:\Coding\AltV\altvoice\altvoice\altvoice\obj\Debug\altvoice.AssemblyInfoInputs.cache
+E:\Coding\AltV\altvoice\altvoice\altvoice\obj\Debug\altvoice.AssemblyInfo.cs
+E:\Coding\AltV\altvoice\altvoice\altvoice\obj\Debug\altvoice.csproj.CoreCompileInputs.cache
+E:\Coding\AltV\altvoice\altvoice\altvoice\obj\Debug\altvoice.csproj.CopyComplete
+E:\Coding\AltV\altvoice\altvoice\altvoice\obj\Debug\altvoice.dll
+E:\Coding\AltV\altvoice\altvoice\altvoice\obj\Debug\altvoice.pdb
+E:\Coding\AltV\altvoice\altvoice\altvoice\obj\Debug\altvoice.csprojAssemblyReference.cache
