@@ -63,8 +63,8 @@ alt.emit('altvoice:removeplayer', id, player);
 ## Installation
 
 1. Create a new resource folder in alt-server/resources
-2. Drop everything from resource in your create folder
-3. Add your resource in your server.cfg
+2. Drop everything from /resource in your new created folder
+3. Add the resource in your server.cfg
 4. Optional: Configure alt:Voice using the settings.json-File inside the resource folder
 5. Start your server
 
