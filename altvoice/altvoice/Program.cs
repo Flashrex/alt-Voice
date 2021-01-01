@@ -4,18 +4,18 @@ namespace altvoice {
     class Program : Resource {
 
         public override void OnStart() {
-            Debug.LogColored("Initialisiere ...");
+            Debug.LogColored("Initialize ...");
 
             Settings settings = Settings.LoadSettings();
 
             if (settings.UseGlobalVoice) {
-                Debug.LogColored("Erstelle globale Voice Channel...");
+                Debug.LogColored("Creating global voice channels...");
                 new GlobalVoice(settings);
             } else {
-                Debug.LogColored("Globale Channel deaktiviert.");
+                Debug.LogColored("Global voice channels deactivated.");
             }
 
-            Debug.LogColored("AltVoice erfolgreich getartet.");
+            Debug.LogColored("AltVoice started successfully.");
         }
 
         public override void OnStop() {

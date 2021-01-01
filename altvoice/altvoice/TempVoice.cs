@@ -1,5 +1,6 @@
 ﻿using AltV.Net;
 using AltV.Net.Elements.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace altvoice {
@@ -26,8 +27,16 @@ namespace altvoice {
         /// </summary>
         /// <param name="player"></param>
         public void AddPlayer(IPlayer player) {
-            IVoiceChannel.AddPlayer(player);
-            Players.Add(player);
+            try {
+                IVoiceChannel.AddPlayer(player);
+                Players.Add(player);
+                if (Settings.GetSettings().Debug) Debug.LogColored($"Added player to Voice Channel: {Id} - Players: {Players.Count}");
+            } catch (Exception e) {
+                Debug.LogError(e.Message);
+                Debug.LogError(e.StackTrace);
+            }
+            
+            
         }
 
         /// <summary>
@@ -37,10 +46,16 @@ namespace altvoice {
         /// <param name="player"></param>
         public void RemovePlayer(IPlayer player) {
             if (Players.Contains(player)) {
-                Players.Remove(player);
-                IVoiceChannel.RemovePlayer(player);
-                if (Players.Count <= 1) {
-                    Delete();
+                try {
+                    Players.Remove(player);
+                    IVoiceChannel.RemovePlayer(player);
+                    if (Settings.GetSettings().Debug) Debug.LogColored($"Removed player from Voice Channel: {Id} - Players: {Players.Count}");
+                    if (Players.Count <= 1) {
+                        Delete();
+                    }
+                } catch (Exception e) {
+                    Debug.LogError(e.Message);
+                    Debug.LogError(e.StackTrace);
                 }
             }
         }
@@ -49,10 +64,16 @@ namespace altvoice {
         /// Deletes this Voice Channel
         /// </summary>
         public void Delete() {
-            IVoiceChannel.Remove();
-            VoiceChannels.Remove(this);
-            if (Settings.GetSettings().Debug) Debug.LogColored($"Removed Voice Channel: {Id}");
-            Alt.Emit("altvoice:removedchannel", Id);
+            try {
+                IVoiceChannel.Remove();
+                VoiceChannels.Remove(this);
+                if (Settings.GetSettings().Debug) Debug.LogColored($"Removed Voice Channel: {Id}");
+                Alt.Emit("altvoice:removedchannel", Id);
+            } catch(Exception e) {
+                Debug.LogError(e.Message);
+                Debug.LogError(e.StackTrace);
+            }
+            
         }
 
         /// <summary>
@@ -86,7 +107,7 @@ namespace altvoice {
         [ServerEvent("altvoice:createchannel")]
         public void OnCreateChannel(int voiceid, IPlayer[] players = null) {
             if (DoesChannelWithIDExists(voiceid)) {
-                Debug.LogError("Create Voice Channel Error: Id in use");
+                Debug.LogError("Create VC Error: Id already in use");
                 return;
             }
 

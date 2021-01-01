@@ -28,12 +28,12 @@ namespace altvoice {
         /// <returns></returns>
         public static Settings LoadSettings() {
             if (File.Exists(Alt.Server.Resource.Path + "/settings.json")) {
-                altvoice.Debug.LogColored("settings.json gefunden. Lade Settings...");
+                altvoice.Debug.LogColored("settings.json found. Load settings...");
                 string json = File.ReadAllText(Alt.Server.Resource.Path + "/settings.json");
                 Config = JsonSerializer.Deserialize<Settings>(json);
 
             } else {
-                altvoice.Debug.LogColored("Keine Konfigurationsdatei gefunden. Verwende Standart Settings...");
+                altvoice.Debug.LogColored("Couldn´t find settings.json. Using default settings...");
                 new Settings();
             }
             return Config;

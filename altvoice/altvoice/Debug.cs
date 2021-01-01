@@ -24,7 +24,7 @@ namespace altvoice {
         public void OnConsoleCommand(string cmd, string[] args) {
             switch (cmd) {
                 case "channels":
-                    LogColored("Aktive Voice Channel: " + (3 + TempVoice.VoiceChannels.Count));
+                    LogColored("Active Voice Channels: " + (3 + TempVoice.VoiceChannels.Count));
                     break;
             }
         }
