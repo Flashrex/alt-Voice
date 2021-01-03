@@ -1,5 +1,7 @@
 # alt:Roleplay Voice
 
+This Resource is not affiliated with alt:V Team!
+
 ## Description
 
 alt:Voice is a custom voice API written in C# that utilizes the built in VoiceChat from the alt:V C# API.
