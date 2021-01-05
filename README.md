@@ -1,5 +1,7 @@
 # alt:Roleplay Voice
 
+![alt text](https://imgur.com/a/GWtFdMb)
+
 ## Description
 
 alt:Voice is a custom voice API written in C# that utilizes the built in VoiceChat from the alt:V C# API.
@@ -12,8 +14,10 @@ Players get automatically added to global voice and can communicate with other p
 * 3 global voice channels (closeRange, midRange, longRange)
 * Players can switch between 4 range-modes (mute, close, mid, long) using '+'-Key (Js Keycode: 107)
 * Easily add your own voice channels using events
+* Ingame radio/walkie-talkie usable with '.'-Key (Js Keycode:190)
 * Configure Resource without touching the code using external settings.json
 * Build in debug mode to find that nasty Errors
+
 
 ## Events
 
@@ -55,6 +59,11 @@ alt.Emit('altvoice:removeplayer', id, player);
 public void OnRemoveChannel(int channelid) {
   //Do Stuff
 }
+
+//Give/remove player radio (walkie-talkie)
+//args is a bool - true = give / false = remove
+player.SetStreamSyncedMetaData("altvoice:hasRadio", args);
+
 ```
 
 * JS-Serverside
@@ -73,6 +82,31 @@ alt.emit('altvoice:removeplayer', id, player);
 alt.on('altvoice:removedchannel', (channelid) => {
   //do stuff
 })
+```
+
+## Settings
+
+```
+{
+	"Debug": true, //Enable/Disable Debug
+	"UseGlobalVoice": true, //Enable/Disable Global ranged Voice Channels
+	"UseRadio": true, //Enable/Disable radio/walkie-talkie
+	"ShortRange": 5.0, //Sets range for short range channel
+	"MidRange": 10.0, //Sets range for mid range channel
+	"LongRange": 20.0 //Sets range for long range channel
+}
+```
+
+## Debug
+
+You can enable debug by settings UseDebug to true in settings.json.
+It enables serverside console commands + debug messages
+
+Server Console Commands:
+```
+channels - Shows current active voice channels
+meta <playername> - Gives a player a walkie talkie
+removemeta <playername> - Take walkie talkie from given player
 ```
 
 ## Installation
