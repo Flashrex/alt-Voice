@@ -1,5 +1,7 @@
 # alt:Roleplay Voice
 
+![alt text](https://imgur.com/a/GWtFdMb)
+
 ## Description
 
 alt:Voice is a custom voice API written in C# that utilizes the built in VoiceChat from the alt:V C# API.
@@ -12,7 +14,7 @@ Players get automatically added to global voice and can communicate with other p
 * 3 global voice channels (closeRange, midRange, longRange)
 * Players can switch between 4 range-modes (mute, close, mid, long) using '+'-Key (Js Keycode: 107)
 * Easily add your own voice channels using events
-* Ingame radio usable with '.'-Key (Js Keycode:190) (https://imgur.com/a/GWtFdMb)
+* Ingame radio/walkie-talkie usable with '.'-Key (Js Keycode:190)
 * Configure Resource without touching the code using external settings.json
 * Build in debug mode to find that nasty Errors
 
