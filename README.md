@@ -1,6 +1,9 @@
 # alt:Roleplay Voice
 
-This Resource is not affiliated with alt:V Team!
+alt:Voice is not affiliated with the official alt:V team!
+
+![alt text](https://github.com/Flashrex/alt-Voice/blob/experimental/thumbnail.png)
+
 
 ## Description
 
@@ -14,8 +17,10 @@ Players get automatically added to global voice and can communicate with other p
 * 3 global voice channels (closeRange, midRange, longRange)
 * Players can switch between 4 range-modes (mute, close, mid, long) using '+'-Key (Js Keycode: 107)
 * Easily add your own voice channels using events
+* Ingame radio/walkie-talkie usable with '.'-Key (Js Keycode:190)
 * Configure Resource without touching the code using external settings.json
 * Build in debug mode to find that nasty Errors
+
 
 ## Events
 
@@ -23,15 +28,19 @@ You can create custom voice channels for example to add phone calls to your reso
 alt:Voice automatically detects empty channels and deletes them for you.
 
 ```csharp
+//call this to add channel
 [ServerEvent("altvoice:createchannel")]
 public void OnCreateChannel(int voiceid, IPlayer[] players = null) { }
 
+//call this to add player to channel
 [ServerEvent("altvoice:addplayer")]
 public void OnAddPlayer(int voiceid, IPlayer player) { }
 
+//call this to remove player from channel
 [ServerEvent("altvoice:removeplayer")]
 public void OnRemovePlayer(int voiceid, IPlayer player) { }
 
+//Implement this event to do stuff if a channel gets removed
 Alt.Emit("altvoice:removedchannel", Id);
 ```
 
@@ -57,6 +66,11 @@ alt.Emit('altvoice:removeplayer', id, player);
 public void OnRemoveChannel(int channelid) {
   //Do Stuff
 }
+
+//Give/remove player radio (walkie-talkie)
+//args is a bool - true = give / false = remove
+player.SetStreamSyncedMetaData("altvoice:hasRadio", args);
+
 ```
 
 * JS-Serverside
@@ -75,6 +89,31 @@ alt.emit('altvoice:removeplayer', id, player);
 alt.on('altvoice:removedchannel', (channelid) => {
   //do stuff
 })
+```
+
+## Settings.json
+
+```
+{
+	"Debug": true, //Enable/Disable Debug
+	"UseGlobalVoice": true, //Enable/Disable Global ranged Voice Channels
+	"UseRadio": true, //Enable/Disable radio/walkie-talkie
+	"ShortRange": 5.0, //Sets range for short range channel
+	"MidRange": 10.0, //Sets range for mid range channel
+	"LongRange": 20.0 //Sets range for long range channel
+}
+```
+
+## Debug
+
+You can enable debug by setting UseDebug to true in settings.json.
+It enables serverside console commands + debug messages
+
+Server Console Commands:
+```
+channels - Shows current active voice channels
+meta <playername> - Gives a player a walkie talkie
+removemeta <playername> - Take walkie talkie from given player
 ```
 
 ## Installation

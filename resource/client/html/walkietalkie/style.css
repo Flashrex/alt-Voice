@@ -1,0 +1,46 @@
+body {
+    overflow: hidden;
+    user-select: none;
+}
+
+.walkie-talkie {
+    position: relative;
+}
+
+.buttons {
+    position: relative;
+    bottom: 225px;
+    left: 58px;
+}
+
+@font-face {
+    font-family: 'digital';
+    src: url('./DS-DIGIB.TTF');
+}
+
+.text {
+    font-family: 'digital';
+    color: rgb(0, 138, 50);
+}
+
+#channel {
+    position: relative;
+    font-size: 70px;
+    bottom: 400px;
+    right: -50px;
+}
+
+#time {
+    position: relative;
+    font-size: 14px;
+    bottom: 580px;
+    left: 42px;
+}
+
+#radio {
+    position: absolute;
+    right: 100px;
+    bottom: -600px;
+    width: 300px;
+    height: 600px;
+}
