@@ -1,6 +1,6 @@
 # alt:Roleplay Voice
 
-![alt text](https://imgur.com/a/GWtFdMb)
+![alt text](http://thumbnail.png)
 
 ## Description
 
