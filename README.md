@@ -1,5 +1,7 @@
 # alt:Roleplay Voice
 
+alt:Voice is not affiliated with the official alt:V team!
+
 ![alt text](https://github.com/Flashrex/alt-Voice/blob/experimental/thumbnail.png)
 
 ## Description
