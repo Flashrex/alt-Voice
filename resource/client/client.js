@@ -8,10 +8,15 @@ let soundrange = null;
 
 let radio = null;
 let radioHidden = true;
+let isRadioEnabled = false;
 
 //Anti Spam Protection
 let lastInteract = 0;
 function canInteract() { return lastInteract + 250 < Date.now(); }
+
+alt.onServer('altvoice:isRadioEnabled', (isEnabled) => {
+    isRadioEnabled = isEnabled;
+})
 
 alt.on('connectionComplete', () => {
     soundrange = new alt.WebView("http://resource/client/html/index.html");
@@ -19,7 +24,7 @@ alt.on('connectionComplete', () => {
 
 alt.on('streamSyncedMetaChange', (entity, key, value, old_value) => {
     if(entity.scriptID === alt.Player.local.scriptID && key === 'altvoice:hasRadio') {
-
+        if(!isRadioEnabled) return;
         if(value) {
             if(radio) return;
             radio = new alt.WebView("http://resource/client/html/walkietalkie/index.html");
@@ -55,7 +60,7 @@ alt.on('keydown', key => {
         return;
     }
     
-    if(radio === null) return;
+    if(radio === null || !isRadioEnabled) return;
     if(key == 190) { //.-Key
         if(radioHidden) {
             radio.emit('toggleRadio', true);

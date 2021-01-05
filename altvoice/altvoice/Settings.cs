@@ -1,4 +1,5 @@
 ﻿using AltV.Net;
+using AltV.Net.Elements.Entities;
 using System.IO;
 using System.Text.Json;
 
@@ -9,6 +10,7 @@ namespace altvoice {
 
         public bool Debug { get; set; }
         public bool UseGlobalVoice { get; set; }
+        public bool UseRadio { get; set; }
         public float ShortRange { get; set; }
         public float MidRange { get; set; }
         public float LongRange { get; set; }
@@ -47,6 +49,11 @@ namespace altvoice {
             return Config;
         }
 
-
+        [ScriptEvent(ScriptEventType.PlayerConnect)]
+        public void OnPlayerConnect(IPlayer player, string reason) {
+            if(Config != null) {
+                player.Emit("altvoice:isRadioEnabled", Config.UseRadio);
+            }
+        }
     }
 }
