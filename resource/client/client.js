@@ -21,6 +21,7 @@ alt.on('streamSyncedMetaChange', (entity, key, value, old_value) => {
     if(entity.scriptID === alt.Player.local.scriptID && key === 'altvoice:hasRadio') {
 
         if(value) {
+            if(radio) return;
             radio = new alt.WebView("http://resource/client/html/walkietalkie/index.html");
             radio.on('channel:change', (channel) => {
                 if(channel == 0.0) return;
