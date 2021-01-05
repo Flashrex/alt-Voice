@@ -88,7 +88,7 @@ alt.on('altvoice:removedchannel', (channelid) => {
 })
 ```
 
-## Settings
+## Settings.json
 
 ```
 {
@@ -103,7 +103,7 @@ alt.on('altvoice:removedchannel', (channelid) => {
 
 ## Debug
 
-You can enable debug by settings UseDebug to true in settings.json.
+You can enable debug by setting UseDebug to true in settings.json.
 It enables serverside console commands + debug messages
 
 Server Console Commands:
