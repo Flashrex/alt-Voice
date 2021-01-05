@@ -1,6 +1,6 @@
 # alt:Roleplay Voice
 
-![alt text](http://thumbnail.png)
+![alt text](https://github.com/Flashrex/alt-Voice/blob/experimental/thumbnail.png)
 
 ## Description
 
