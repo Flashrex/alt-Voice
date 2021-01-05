@@ -29,12 +29,29 @@ namespace altvoice {
                     LogColored("Active Voice Channels: " + (3 + TempVoice.VoiceChannels.Count));
                     break;
                 case "meta":
-                    LogColored("Added MetaData");
-                    foreach (IPlayer player in Alt.GetAllPlayers()) player.SetStreamSyncedMetaData("altvoice:hasRadio", true);
+                    if(args.Length == 1) {
+                        string playerName = args[0];
+
+                        foreach (IPlayer player in Alt.GetAllPlayers()) {
+                            if (player.Name.ToLower() == playerName.ToLower()) {
+                                player.SetStreamSyncedMetaData("altvoice:hasRadio", true);
+                                LogColored("Added MetaData to " +playerName);
+                                return;
+                            }
+                        }
+                    }
                     break;
                 case "removemeta":
-                    LogColored("Removed MetaData");
-                    foreach (IPlayer player in Alt.GetAllPlayers()) player.SetStreamSyncedMetaData("altvoice:hasRadio", false);
+                    if(args.Length == 1) {
+                        string playerName = args[0];
+                        foreach (IPlayer player in Alt.GetAllPlayers()) {
+                            if (player.Name.ToLower() == playerName.ToLower()) {
+                                player.SetStreamSyncedMetaData("altvoice:hasRadio", false);
+                                LogColored("Removed MetaData from " + playerName);
+                                return;
+                            }
+                        }
+                    }
                     break;
             }
         }
