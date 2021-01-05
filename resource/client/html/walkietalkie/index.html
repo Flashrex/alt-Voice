@@ -1,0 +1,16 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="radio">
+        <img class="walkie-talkie" src="walkie_talkie.png">
+        <div class="buttons">
+            <a id="button_up" onclick="updateChannel(true)"><img src="button.png"></a>
+            <a id="button_down" onclick="updateChannel(false)"><img src="button.png" style="transform:rotate(180deg);"></a>
+            <a id="button_confirm" onclick="confirmChannel()"><img src="button_confirm.png"></a>
+        </div>
+        <p class="text" id="channel">000.00</p>
+        <p class="text" id="time">10:25</p>
+        <script src="app.js"></script>
+    </div>
+</body>

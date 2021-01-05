@@ -56,6 +56,7 @@ namespace altvoice {
             AddPlayerToAllVoiceChannels(player);
             //Standart Range
             SwitchVoiceChannelForPlayer(player, 1);
+
         }
 
         [ScriptEvent(ScriptEventType.PlayerDisconnect)]

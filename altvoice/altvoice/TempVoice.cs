@@ -50,7 +50,7 @@ namespace altvoice {
                     Players.Remove(player);
                     IVoiceChannel.RemovePlayer(player);
                     if (Settings.GetSettings().Debug) Debug.LogColored($"Removed player from Voice Channel: {Id} - Players: {Players.Count}");
-                    if (Players.Count <= 1) {
+                    if (Players.Count == 0) {
                         Delete();
                     }
                 } catch (Exception e) {
@@ -106,6 +106,7 @@ namespace altvoice {
 
         [ServerEvent("altvoice:createchannel")]
         public void OnCreateChannel(int voiceid, IPlayer[] players = null) {
+            voiceid += 999;
             if (DoesChannelWithIDExists(voiceid)) {
                 Debug.LogError("Create VC Error: Id already in use");
                 return;
@@ -119,12 +120,14 @@ namespace altvoice {
 
         [ServerEvent("altvoice:addplayer")]
         public void OnAddPlayer(int voiceid, IPlayer player) {
+            voiceid += 999;
             TempVoice voice = GetVoiceChannelById(voiceid);
             if (voice != null) voice.AddPlayer(player);
         }
 
         [ServerEvent("altvoice:removeplayer")]
         public void OnRemovePlayer(int voiceid, IPlayer player) {
+            voiceid += 999;
             TempVoice voice = GetVoiceChannelById(voiceid);
             if (voice != null) {
                 voice.RemovePlayer(player);
@@ -133,8 +136,40 @@ namespace altvoice {
 
         [ScriptEvent(ScriptEventType.PlayerDisconnect)]
         public void OnPlayersDisconnect(IPlayer player, string reason) {
+            TempVoice removed = null;
             foreach(TempVoice voice in VoiceChannels) {
-                if (voice.Players.Contains(player)) voice.RemovePlayer(player);
+                if (voice.Players.Contains(player)) removed = voice;
+            }
+            if(removed != null) removed.RemovePlayer(player);
+        }
+
+        [ClientEvent("altvoice:changeChannel")]
+        public void OnChangeChannel(IPlayer player, int channel) {
+            TempVoice voice;
+
+            if(!DoesChannelWithIDExists(channel)) {
+                voice = new TempVoice(channel);
+            } else {
+                voice = GetVoiceChannelById(channel);
+            }
+
+            if(player.HasData("altvoice:radio")) {
+                player.GetData("altvoice:radio", out TempVoice radio);
+                radio.RemovePlayer(player);
+                player.DeleteData("altvoice:radio");
+            }
+            
+            voice.AddPlayer(player);
+            player.SetData("altvoice:radio", voice);
+        }
+
+        //Todo: Remove that shit
+        [ClientEvent("altvoice:removedMeta")]
+        public void OnRemovedMeta(IPlayer player) {
+            if (player.HasData("altvoice:radio")) {
+                player.GetData("altvoice:radio", out TempVoice radio);
+                radio.RemovePlayer(player);
+                player.DeleteData("altvoice:radio");
             }
         }
     }
