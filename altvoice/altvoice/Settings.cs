@@ -4,7 +4,7 @@ using System.IO;
 using System.Text.Json;
 
 namespace altvoice {
-    class Settings : IScript{
+    class Settings : IScript {
 
         private static Settings Config = null;
 
@@ -18,6 +18,7 @@ namespace altvoice {
         public Settings() {
             Debug = false;
             UseGlobalVoice = true;
+            UseRadio = true;
             ShortRange = 5.0f;
             MidRange = 10.0f;
             LongRange = 20.0f;

@@ -79,10 +79,6 @@ function slideOut() {
 
 window.onload = function() {
     updateTime();
-    toggleRadio(true);
-    setTimeout(() => {
-        toggleRadio(false);
-    }, 2000);
 }
 
 alt.on('toggleRadio', (toggle) => toggleRadio(toggle));
