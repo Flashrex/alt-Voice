@@ -25,15 +25,19 @@ You can create custom voice channels for example to add phone calls to your reso
 alt:Voice automatically detects empty channels and deletes them for you.
 
 ```csharp
+//call this to add channel
 [ServerEvent("altvoice:createchannel")]
 public void OnCreateChannel(int voiceid, IPlayer[] players = null) { }
 
+//call this to add player to channel
 [ServerEvent("altvoice:addplayer")]
 public void OnAddPlayer(int voiceid, IPlayer player) { }
 
+//call this to remove player from channel
 [ServerEvent("altvoice:removeplayer")]
 public void OnRemovePlayer(int voiceid, IPlayer player) { }
 
+//Implement this event to do stuff if a channel gets removed
 Alt.Emit("altvoice:removedchannel", Id);
 ```
 
